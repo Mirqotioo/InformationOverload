@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test Video VR</title>
+    <meta name="description" content="Simple VR test with one video using A-Frame">
+    <!-- Include la libreria A-Frame -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+    <!-- Stile per rimuovere margini del body -->
+    <style>
+      body { margin: 0; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+
+    <!-- a-scene: Il contenitore di tutta la tua scena 3D/VR -->
+    <a-scene>
+
+      <!-- a-assets: Qui carichiamo le risorse, come il tuo video -->
+      <a-assets>
+        <!-- Il tag <video> carica il tuo video -->
+        <!-- id="myVideo" è un nome di riferimento che useremo dopo -->
+        <!-- src="Proj_ADAM_Docu.mp4" punta al tuo file video -->
+        <!-- autoplay: Fa partire il video automaticamente -->
+        <!-- loop: Fa ripetere il video in loop -->
+        <!-- crossOrigin="anonymous": Utile per l'hosting su server diversi -->
+        <video id="myVideo" autoplay loop="true" src="Proj_ADAM_Docu.mp4" crossOrigin="anonymous"></video>
+      </a-assets>
+
+      <!-- a-plane: Questo crea un piano (un rettangolo piatto) nella scena 3D -->
+      <!-- material="src: #myVideo": Applica il video con id="myVideo" come texture al piano -->
+      <!-- width="10" height="5.625": Imposta le dimensioni del piano (es. proporzione 16:9) -->
+      <!-- position="0 1.6 -5": Posiziona il piano nella scena (X=0, Y=1.6m, Z=-5m). Lo mette 5m davanti all'utente, all'altezza degli occhi -->
+      <!-- rotation="0 0 0": Nessuna rotazione, è dritto davanti -->
+      <a-plane material="src: #myVideo" width="10" height="5.625" position="0 1.6 -5" rotation="0 0 0"></a-plane>
+
+      <!-- a-camera: Definisce il punto di vista dell'utente -->
+      <!-- position="0 1.6 0": Posiziona la telecamera all'origine (0,0,0) ad un'altezza di 1.6m -->
+      <a-camera position="0 1.6 0"></a-camera>
+
+      <!-- Puoi aggiungere uno sfondo se vuoi, altrimenti è grigio di default -->
+      <!-- <a-sky color="#ECECEC"></a-sky> -->
+
+    </a-scene>
+
+  </body>
+</html>
